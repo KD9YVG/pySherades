@@ -3,9 +3,11 @@ import socket
 global respond
 respond = False
 
+VERSION = 1
+
 def firstResponder (data):
-    if data == "GMNGAME":
-        message = "OPEN"
+    if data == "GMNGAME-PN":
+        message = "OPEN-PN"
         respond = True
     else:
         message = None
@@ -20,7 +22,7 @@ def secondResponder (data):
         message = "NO-"
     else:
         message = "NO+"
-    
+    print(guessNumber)
     return message
 
 
@@ -56,7 +58,7 @@ def start_server(host='0.0.0.0', port=8724):
 
 def start():
     global number
-    number = int(input("Enter a number: "))
+    number = int(input("\033[43;30mEnter a number:\033[0m "))
 
 
 if __name__ == "__main__":
